@@ -9,6 +9,8 @@ def month_to_season(month_number):
         return "Осень"
     else:
         return "Некорректный номер месяца"
+
+
 month_number = 10
 season = month_to_season(month_number)
 
