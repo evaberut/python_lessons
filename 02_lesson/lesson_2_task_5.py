@@ -11,7 +11,7 @@ def month_to_season(month_number):
         return "Некорректный номер месяца"
 
 
-# Две пустые строки здесь
+
 month_number = 10
 season = month_to_season(month_number)
 
