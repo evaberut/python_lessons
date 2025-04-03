@@ -10,4 +10,7 @@ def month_to_season(month_number):
     else:
         return "Некорректный номер месяца"
 
-print(f"Месяц {month} — это {season}")
+month_number = 10
+season = month_to_season(month_number)
+
+print(f"Месяц {month_number} — это {season}")
