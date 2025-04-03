@@ -13,5 +13,4 @@ print(
     f"{mailing.from_address.apartment} в "
     f"{mailing.to_address.postal_code}, {mailing.to_address.city}, "
     f"{mailing.to_address.street}, {mailing.to_address.house} - "
-    f"{mailing.to_address.apartment}. Стоимость {mailing.cost} рублей."
-      
+    f"{mailing.to_address.apartment}. Стоимость {mailing.cost} рублей.")
