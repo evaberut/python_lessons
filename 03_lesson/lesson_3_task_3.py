@@ -6,7 +6,12 @@ from_address = Address("654321", "Санкт-Петербург", "Невски�
 
 mailing = Mailing(to_address, from_address, 500, "AB123456789CD")
 
-print(f"Отправление {mailing.track} из {mailing.from_address.postal_code}, {mailing.from_address.city}, "
-      f"{mailing.from_address.street}, {mailing.from_address.house} - {mailing.from_address.apartment} в "
-      f"{mailing.to_address.postal_code}, {mailing.to_address.city}, {mailing.to_address.street}, "
-      f"{mailing.to_address.house} - {mailing.to_address.apartment}. Стоимость {mailing.cost} рублей.")
+print(
+    f"Отправление {mailing.track} из "
+    f"{mailing.from_address.postal_code}, {mailing.from_address.city}, "
+    f"{mailing.from_address.street}, {mailing.from_address.house} - "
+    f"{mailing.from_address.apartment} в "
+    f"{mailing.to_address.postal_code}, {mailing.to_address.city}, "
+    f"{mailing.to_address.street}, {mailing.to_address.house} - "
+    f"{mailing.to_address.apartment}. Стоимость {mailing.cost} рублей."
+      
