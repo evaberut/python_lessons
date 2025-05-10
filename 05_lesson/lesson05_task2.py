@@ -7,9 +7,6 @@ import time
 service = ChromeService(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
-service = ChromeService(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
-
 try:
     driver.get("http://uitestingplayground.com/dynamicid")
 
