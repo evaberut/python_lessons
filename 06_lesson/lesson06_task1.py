@@ -13,7 +13,7 @@ try:
     button = driver.find_element(By.ID, "ajaxButton")
     button.click()
 
-    wait = WebDriverWait(driver, 15)
+    wait = WebDriverWait(driver, 17)
     result_element = wait.until(
         EC.presence_of_element_located((By.CLASS_NAME, "bg-success"))
     )
