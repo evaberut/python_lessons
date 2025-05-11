@@ -12,7 +12,7 @@ try:
     wait = WebDriverWait(driver, 20)
     images = driver.find_elements(By.TAG_NAME, 'img')
     for image in images:
-        wait.untilwait.until(
+        wait.until(
             lambda driver: driver.execute_script(
                 'return arguments[0].complete '
                 '&& arguments[0].naturalWidth > 0',
