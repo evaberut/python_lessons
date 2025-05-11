@@ -34,6 +34,3 @@ finally:
     third_image_src = images[2].get_attribute('src')
 
     print(third_image_src)
-
-finally:
-    driver.quit()
