@@ -59,8 +59,8 @@ class TestSauceDemo(unittest.TestCase):
         self.assertEqual(
             total_value,
             58.29,
-            f"Ожидаемая итоговая сумма: $58.29, фактическая: ${total_value}",
-        )
+            f"Ожидаемая сумма: $58.29, фактическая: ${total_value}"
+            )
 
 
 if __name__ == "__main__":

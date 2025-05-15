@@ -29,9 +29,6 @@ class CalculatorPage:
     def press_button(self, button_locator: tuple):
         wait = WebDriverWait(self.driver, 20)
         button = wait.until(
-            EC.presence_of_element_located(button_locator)
-            )
-        button = wait.until(
             EC.element_to_be_clickable(button_locator)
         )
         button.click()
