@@ -14,17 +14,17 @@ class ApiClient:
             "Authorization": f"Bearer {token}"
         })
 
-    def post(self, path, **kwargs):
-        return self.session.post(f"{self.base_url}{path}", **kwargs)
+    def post(self, path, json=None, data=None, headers=None, params=None, timeout=None):
+        return self.session.post(f"{self.base_url}{path}", json=json, data=data, headers=headers, params=params, timeout=timeout)
 
-    def put(self, path, **kwargs):
-        return self.session.put(f"{self.base_url}{path}", **kwargs)
+    def put(self, path, json=None, data=None, headers=None, params=None, timeout=None):
+        return self.session.put(f"{self.base_url}{path}", json=json, data=data, headers=headers, params=params, timeout=timeout)
 
-    def get(self, path, **kwargs):
-        return self.session.get(f"{self.base_url}{path}", **kwargs)
+    def get(self, path, params=None, headers=None, timeout=None):
+        return self.session.get(f"{self.base_url}{path}", params=params, headers=headers, timeout=timeout)
 
-    def delete(self, path, **kwargs):
-        return self.session.delete(f"{self.base_url}{path}", **kwargs)
+    def delete(self, path, params=None, headers=None, timeout=None):
+        return self.session.delete(f"{self.base_url}{path}", params=params, headers=headers, timeout=timeout)
 
 
 @pytest.fixture(scope="session")
@@ -43,9 +43,6 @@ def create_project(api_client, delete_project):
             )
 
         response = api_client.post("/projects", json=payload)
-        if response.status_code != 201:
-            print(f"\nError creating project: Status {response.status_code},"
-                  f" Response: {response.text}")
         assert response.status_code == 201, (
             f"Expected status code 201, but got {response.status_code}."
             f" Response: {response.text}"
@@ -59,22 +56,9 @@ def create_project(api_client, delete_project):
     for project_id in created_project_ids:
         try:
             delete_response = delete_project(project_id)
-            if delete_response.status_code == 204:
-                print(f"\nCleaned up project: {project_id}")
-            elif delete_response.status_code == 404:
-                print(
-                    f"\nProject {project_id} not found during cleanup"
-                    " (might have been deleted by test or already cleaned)."
-                )
-            else:
-                print(
-                    f"\nFailed to cleanup project {project_id}:"
-                    f" Status {delete_response.status_code}, Response:"
-                    f" {delete_response.text}"
-                )
-        except Exception as e:
-            print(f"\nError during cleanup of project {project_id}: {e}")
-
+            pass
+        except Exception:
+            pass
 
 @pytest.fixture
 def delete_project(api_client):

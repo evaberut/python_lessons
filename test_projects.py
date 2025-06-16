@@ -12,7 +12,7 @@ class TestProjects:
         assert get_response.status_code == 200, (
             f"GET after CREATE failed: {get_response.text}"
         )
-        assert get_response.json()["title"] == payload["title"], (
+        assert get_response.json().get("title") == payload["title"], (
             "Title mismatch after creation. GET Response:"
             f" {get_response.text}"
         )
@@ -43,8 +43,8 @@ class TestProjects:
             f" Response: {response.text}"
         )
         response_json = response.json()
-        assert response_json["id"] == project_id
-        assert response_json["title"] == project_title
+        assert response_json("id") == project_id
+        assert response_json("title") == project_title
 
     def test_get_project_negative_invalid_id(self, api_client):
         invalid_id = "nonExistentUUID1234567890"
@@ -78,7 +78,7 @@ class TestProjects:
         assert get_response.status_code == 200, (
             f"GET after PUT failed: {get_response.text}"
         )
-        assert get_response.json()["title"] == updated_title, (
+        assert get_response.json().get("title") == updated_title, (
             f"Title not updated. Response: {get_response.text}"
         )
 
