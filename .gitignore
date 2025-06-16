@@ -1,0 +1,12 @@
+# Файлы IDE (например, PyCharm)
+.idea/
+
+# Временные файлы pytest
+.pytest_cache/
+
+# Файлы кэша Python (сгенерированные байт-коды)
+__pycache__/
+
+# Дополнительно: если вы используете virtual environment
+# venv/
+# .venv/
