@@ -1,2 +1,5 @@
 __pycache__
 *.pyc
+# Allure reports
+allure-results/
+allure-report/
