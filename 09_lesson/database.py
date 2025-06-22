@@ -7,6 +7,7 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
+
 class Student(Base):
     __tablename__ = "students"
 
@@ -17,8 +18,10 @@ class Student(Base):
     def __repr__(self):
         return f"<Student(id={self.id}, name='{self.name}', age={self.age})>"
 
+
 def create_db_tables():
     Base.metadata.create_all(bind=engine)
+
 
 if __name__ == "__main__":
     create_db_tables()

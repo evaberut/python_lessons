@@ -2,6 +2,7 @@ import pytest
 from sqlalchemy.orm import Session
 from .database import SessionLocal, Student, Base, engine
 
+
 @pytest.fixture(scope="function")
 def db():
     Base.metadata.create_all(bind=engine)
@@ -25,7 +26,8 @@ def test_add_student(db: Session):
     assert new_student.name == "Alice"
     assert new_student.age == 20
 
-    retrieved_student = db.query(Student).filter(Student.name == "Alice").first()
+    retrieved_student = db.query(Student).filter(
+        Student.name == "Alice").first()
     assert retrieved_student is not None
     assert retrieved_student.name == "Alice"
 
@@ -40,7 +42,8 @@ def test_update_student(db: Session):
     db.commit()
     db.refresh(student_to_update)
 
-    updated_student = db.query(Student).filter(Student.id == student_to_update.id).first()
+    updated_student = db.query(Student).filter(
+        Student.id == student_to_update.id).first()
     assert updated_student is not None
     assert updated_student.age == 23
 
@@ -55,5 +58,6 @@ def test_delete_student(db: Session):
     db.delete(student_to_delete)
     db.commit()
 
-    deleted_student = db.query(Student).filter(Student.id == student_id).first()
+    deleted_student = db.query(Student).filter(
+        Student.id == student_id).first()
     assert deleted_student is None
